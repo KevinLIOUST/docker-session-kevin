@@ -1,0 +1,70 @@
+/* Importation de la police d'écriture */
+
+@import url('https://fonts.googleapis.com/css2?family=Delius+Swash+Caps&display=swap');
+
+body {
+  font-family: Delius;
+  background-color: white;
+}
+
+.taille-email {
+  width: 30rem;
+}
+
+.design-email {
+  border-radius: 8px;
+  height: 3rem;
+}
+
+.design-email {
+  border-radius: 8px;
+  height: 3rem;
+  border-color: 3px solid #4d5deb;
+}
+
+.taille-mdp {
+  width: 30rem;
+}
+
+.design-mdp {
+  border-radius: 8px;
+  height: 3rem;
+}
+
+.btn-connexion {
+  font-size: large;
+  border: 3px solid black;
+  background-color: #4d5deb;
+  color: white;
+  width: 30rem;
+}
+
+.btn-connexion:hover {
+  background-color: #6f8fec;
+  border: 3px solid black;
+  color: white;
+}
+
+.div-formulaire {
+  width: 60%;
+  height: auto;
+  display: grid;
+  grid-template-columns: 1fr;
+  flex-wrap: wrap;
+  text-align: center;
+  justify-self: center;
+  background-color: #cacfe1;
+}
+
+.taille-label-form {
+  width: 15%;
+}
+
+.taille-input-form {
+  width: 85%;
+}
+
+.taille-textarea {
+  width: 85%;
+  height: 20rem;
+}
