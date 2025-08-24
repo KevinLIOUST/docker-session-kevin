@@ -59,7 +59,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     for ($i = 0; $i < count($users); $i++) {
         if (($_POST['email'] == $users[$i]['mail']) && ($_POST['mdp'] == $users[$i]['password']) && (empty($errors))) {
-            header("Location: espace.php?id=" . $_SESSION["id"] . "?role=" . $_SESSION['role']);
+            header("Location: espace.php?id=" . $_SESSION["id"] . "&role=" . $_SESSION['role']);
         } elseif (!($_POST['email'] != $users[$i]['mail']) || !($_POST['mdp'] != $users[$i]['password'])) {
             $errors['matchPas'] = 'Le mot de passe et l\'adresse mail ne matchent pas avec le même utilisateur';
         }

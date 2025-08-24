@@ -12,7 +12,7 @@
 
 $users = [
     [
-        "id"=> 1,
+        "id"=> 0,
         "name"=> "Tony",
         "lastname"=> "Stark",
         "mail" => "tony.stark@avengers.com",
@@ -20,7 +20,7 @@ $users = [
         "role" => "admin"
     ],
     [
-        "id"=> 2,
+        "id"=> 1,
         "name"=> "Clark",
         "lastname"=> "Kent",
         "mail" => "clark.kent@dailyplanet.com",
@@ -28,7 +28,7 @@ $users = [
         "role" => "user"
     ],
     [
-        "id"=> 3,
+        "id"=> 2,
         "name"=> "Diana",
         "lastname" => "Prince",
         "mail" => "diana.prince@getawaymuseum.com",
