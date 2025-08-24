@@ -1,7 +1,7 @@
 <?php
 require_once 'users.php';
 
-var_dump($_POST);
+// var_dump($_POST);
 
 // On lance uniquement quand il y a un formulaire validé via la méthode SESSION
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
@@ -15,6 +15,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         } elseif (!filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) {
             $errors['email'] = 'Mail non valide';
         } else {
+            $email = '';
+            $id = 0;
+            $role = '';
             for ($i = 0; $i < count($users); $i++) {
                 if ($_POST['email'] == $users[$i]['mail']) {
                     $email = $_POST['email'];
@@ -28,7 +31,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     break;
                 }
             }
-            if ($_POST['email'] != $users[$i]['mail']) {
+            if ($_POST['email'] != $email) {
                 $errors['email'] = 'Mail incorrect';
             }
         }
@@ -41,28 +44,29 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             // je crée une erreur dans mon tableau
             $errors['mdp'] = 'Mot de passe obligatoire';
         } else {
+            $mdp = '';
             for ($i = 0; $i < count($users); $i++) {
                 if ($_POST['mdp'] == $users[$i]['password']) {
                     $mdp = $_POST['mdp'];
                     $_SESSION['mdp'] = $mdp;
                 }
             }
-            if (!array_key_exists("mdp", $_SESSION)) {
+            if ($_POST['mdp'] != $mdp) {
                 $errors['mdp'] = 'Mot de passe incorrect';
             }
         }
     }
 
     for ($i = 0; $i < count($users); $i++) {
-        if (($_SESSION['email'] == $users[$i]['mail']) && ($_SESSION['mdp'] == $users[$i]['password']) && (empty($errors))) {
+        if (($_POST['email'] == $users[$i]['mail']) && ($_POST['mdp'] == $users[$i]['password']) && (empty($errors))) {
             header("Location: espace.php?id=" . $_SESSION["id"] . "?role=" . $_SESSION['role']);
-        } elseif (!($_SESSION['email'] != $users[$i]['mail']) || !($_SESSION['mdp'] != $users[$i]['password'])) {
+        } elseif (!($_POST['email'] != $users[$i]['mail']) || !($_POST['mdp'] != $users[$i]['password'])) {
             $errors['matchPas'] = 'Le mot de passe et l\'adresse mail ne matchent pas avec le même utilisateur';
         }
     }
 
-    var_dump($errors);
-    var_dump($_SESSION);
+    // var_dump($errors);
+    // var_dump($_SESSION);
 }
 ?>
 
