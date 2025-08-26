@@ -1,17 +1,18 @@
 <?php
 // var_dump($_POST);
 
-if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['logout'])) {
+// La session en question
+session_start();
 
-    // La session en question
-    session_start();
-    // Détruire toutes les variables de session
-    session_unset();
+// Détruire toutes les variables de session
+session_unset();
 
-    // Détruire la session
-    session_destroy();
-}
-?>
+// Détruire la session
+session_destroy();
+
+// if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['logout'])) {
+
+// } ?>
 
 <!DOCTYPE html>
 <html lang="fr">
@@ -36,8 +37,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['logout'])) {
         <h1>Vous avez été déconnecté avec succès !!!!</h1>
     </div>
     <script>
-        setTimeout(function() {
-            window.location.href="login.php";
+        setTimeout(function () {
+            window.location.href = "login.php";
         }, 3000);
     </script>
 </body>

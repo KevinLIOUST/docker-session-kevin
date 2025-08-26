@@ -1,20 +1,19 @@
 <?php
 require_once 'users.php';
 
-// var_dump($_GET);
+// Pour manipuler les variables de session, il utiliser session_start();
+session_start();
 
-// $email = '';
-// $role = '';
-// $id = 0;
+// var_dump($_SESSION);
 
-if (isset($_GET['id']) && isset($_GET['role'])) {
-    $role = htmlspecialchars($_GET['role']);
-    $id = filter_var($_GET['id'], FILTER_VALIDATE_INT);
-
-    $email = $users[$id]['mail'];
+// Nous allons proteger la page espace.php, pour empecher d'y accéder sans connexion
+if (isset($_SESSION['user'])) {
+    $role = htmlspecialchars($_SESSION['user']['role']);
+    $email = htmlspecialchars($_SESSION['user']['mail']);
+} else {
+    header('Location: login.php');
+    exit;
 }
-
-// header("Location: logout.php");
 ?>
 
 <!DOCTYPE html>
@@ -42,7 +41,7 @@ if (isset($_GET['id']) && isset($_GET['role'])) {
                 <img class="taille-logo" src="assets/img/Logo_Doctogeek_3.png" alt="assets/img/Logo_Doctogeek_3.png">
             </div>
             <div class="d-flex justify-content-end align-items-center w-100">
-                <?php if ($role == "admin") { ?>
+                <?php if ($role == 'admin') { ?>
                     <button class="btn design-button ms-3 design-btn-admin">Gérer les utilisateurs</button>
                     <button class="btn design-button ms-3 design-btn-admin">Gérer les rendez-vous</button>
                 <?php } ?>
@@ -51,7 +50,7 @@ if (isset($_GET['id']) && isset($_GET['role'])) {
                 <p class="mx-3 mt-3"><?= $email ?></p>
             </div>
             <form class="d-flex" method="POST" action="logout.php">
-                <input class="btn design-button" type="submit" name="logout" value="Déconnexion">
+                <input class="btn design-button" type="submit" value="Déconnexion">
             </form>
         </div>
     </nav>

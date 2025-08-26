@@ -12,27 +12,27 @@
 
 $users = [
     [
-        "id"=> 0,
-        "name"=> "Tony",
-        "lastname"=> "Stark",
+        "id" => 0,
+        "name" => "Tony",
+        "lastname" => "Stark",
         "mail" => "tony.stark@avengers.com",
-        "password" => "$2y$10CJ5Ocz3VnQQb7xJr1auRPeT3n5w0vDbGoZlc8vwOrV4RQon0Fh02O",
+        "password" => '$2y$10$UsXGjdnivVRy33LKd79gy.mx33avb.3gTNX1EoEnbcXGKMQF4rI2O',
         "role" => "admin"
     ],
     [
-        "id"=> 1,
-        "name"=> "Clark",
-        "lastname"=> "Kent",
+        "id" => 1,
+        "name" => "Clark",
+        "lastname" => "Kent",
         "mail" => "clark.kent@dailyplanet.com",
-        "password" => "$2y$10iim2njEVV23ZfC5Eg4Ha2uUblN5dHjyF1y8gBjTBCkOOVdDwfRnXK",
+        "password" => '$2y$10$2FRslzZbDCOwDwg7jrGjyeuzvQq5L6zLBRcL32unXTd81FL.Qw6kW',
         "role" => "user"
     ],
     [
-        "id"=> 2,
-        "name"=> "Diana",
+        "id" => 2,
+        "name" => "Diana",
         "lastname" => "Prince",
         "mail" => "diana.prince@getawaymuseum.com",
-        "password" => "$2y$10vPYv3Yqz8cUBATuJjBotWuUwIubsnyXR3xoI0G0tRgN3VM4yS3kw2",
+        "password" => '$2y$10$l1fL9I5sebkPaeR4s9W8GO3OiZmw3UALLb6vE6nI2rEphO6/oPZ26',
         "role" => "user"
     ]
 ];
